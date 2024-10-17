@@ -27,12 +27,18 @@ def create_movies_table_and_insert_data(json_file_path):
     )
 
     # Création de la table dans la base de données
-    metadata.create_all(engine)
+    try:
+        metadata.create_all(engine)
+        print("Table 'movies' créée ou déjà existante.")
+    except Exception as e:
+        print(f"Erreur lors de la création de la table: {e}")
+        return
 
     # Lire les données du fichier JSON
     try:
         with open(json_file_path, 'r', encoding='utf-8') as file:
             movies_data = json.load(file)
+            print("Données JSON lues avec succès.")
     except Exception as e:
         print(f"Erreur lors de la lecture du fichier JSON: {e}")
         return
@@ -57,5 +63,4 @@ def create_movies_table_and_insert_data(json_file_path):
     except Exception as e:
         print(f"Erreur lors de l'insertion des données dans la base de données: {e}")
 
-# Exemple d'utilisation
-# create_movies_table_and_insert_data("chemin/vers/ton_fichier.json")
+
