@@ -82,8 +82,8 @@ def fetch_data_json_in_data(option, file_path):
             # Supprimer le fichier gzip après décompression
             os.remove(gz_file_path)
 
-            # Créer la table de films et insérer les données
-            # create_movies_table_and_insert_data(file_path)
+            print(file_path)
+            create_movies_table_and_insert_data(file_path)
             
             return file_path
 

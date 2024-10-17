@@ -9,8 +9,10 @@ from test import test_repeated_executions, stress_test
 
 load_dotenv()
 
-# Test de simulation de charge élevée
+########################## PARTIE TEST A DECOMMENTER POUR TESTER
+
 # stress_test()
+# test_repeated_executions()
 
 # Ajuster la taille du layout
 st.set_page_config(
